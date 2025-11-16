@@ -17,8 +17,10 @@
         newTab.document.title = "JohnJohn Site";
       }
 
-      // Redirect the current tab to Google
-      window.location.href = "https://www.google.com";
+      // Wait 2 seconds before redirecting the current tab to Google
+      setTimeout(function() {
+        window.location.href = "https://www.google.com";
+      }, 2000);
     };
   </script>
 </head>
