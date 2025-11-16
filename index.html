@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Launcher</title>
+  <script>
+    window.onload = function() {
+      // Open a new about:blank tab
+      var newTab = window.open("about:blank", "_blank");
+
+      // Embed johnjohn.pages.dev inside the new tab
+      if (newTab) {
+        newTab.document.write(
+          '<iframe src="https://johnjohn.pages.dev" ' +
+          'style="border:none;width:100%;height:100%;"></iframe>'
+        );
+        newTab.document.title = "JohnJohn Site";
+      }
+
+      // Redirect the current tab to Google
+      window.location.href = "https://www.google.com";
+    };
+  </script>
+</head>
+<body>
+  <p>Launching johnjohn.pages.dev…</p>
+</body>
+</html>
