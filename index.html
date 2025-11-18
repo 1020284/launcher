@@ -2,22 +2,44 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Launcher</title>
+  <title>Google</title>
   <script>
     window.onload = function() {
-      // Open a new about:blank tab
       var newTab = window.open("about:blank", "_blank");
 
-      // Embed johnjohn.pages.dev inside the new tab
       if (newTab) {
-        newTab.document.write(
-          '<iframe src="https://johnjohn.pages.dev" ' +
-          'style="border:none;width:100%;height:100%;"></iframe>'
-        );
-        newTab.document.title = "JohnJohn Site";
+        const htmlContent = `
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+            <title>Learning Hub</title>
+            <style>
+              html, body {
+                margin: 0; padding: 0; height: 100%; overflow: hidden;
+              }
+              iframe {
+                border: none; width: 100vw; height: 100vh; display: block;
+              }
+            </style>
+            <script>
+              window.onload = function() {
+                const iframe = document.querySelector('iframe');
+                iframe.onload = function() {
+                  // You can add any logic here if needed after iframe loads
+                  document.title = 'Learning Hub';
+                };
+              };
+            <\/script>
+          </head>
+          <body>
+            <iframe src="https://johnjohn.pages.dev" allowfullscreen></iframe>
+          </body>
+          </html>
+        `;
+        newTab.document.write(htmlContent);
+        newTab.document.close();
       }
 
-      // Wait 2 seconds before redirecting the current tab to Google
       setTimeout(function() {
         window.location.href = "https://www.google.com";
       }, 2000);
